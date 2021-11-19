@@ -1,10 +1,3 @@
-/*
- * parser.c
- *
- *  Created on: 18 nov. 2021
- *      Author: Alvarez Gonzalo
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include "../inc/LinkedList.h"
@@ -12,6 +5,14 @@
 #include "parser.h"
 #include "inputs.h"
 
+/** \brief Parsea los datos de las mascotas desde el archivo data.csv (modo texto).
+ *
+ * \param pFile FILE* Puntero al archivo
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si el puntero a pFile es NULL o el puntero a LinkedList es NULL
+ *                      (1) = Todo Ok
+ *
+ */
 int parser_MascotasFromText(FILE* pFile , LinkedList* pListaMascotas)
 {
     int todoOk = 0;
@@ -38,6 +39,14 @@ int parser_MascotasFromText(FILE* pFile , LinkedList* pListaMascotas)
     return todoOk;
 }
 
+/** \brief Parsea los datos de las mascotas al archivo data.csv (modo texto).
+ *
+ * \param pFile FILE* Puntero al archivo
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si el puntero a pFile es NULL o el puntero a LinkedList es NULL
+ *                      (1) = Todo Ok
+ *
+ */
 int parser_MascotasToText(FILE* pFile , LinkedList* pListaMascotas)
 {
 	int todoOk = 0;

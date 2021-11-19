@@ -1,10 +1,3 @@
-/*
- * mascota.c
- *
- *  Created on: 18 nov. 2021
- *      Author: Alvarez Gonzalo
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -14,6 +7,11 @@
 #include "inputs.h"
 #include "parser.h"
 
+/** \brief Pide espacio en memoria para una nueva mascota y lo inicializa con datos estandar
+ *
+ * \return Mascota* Retorna un puntero con espacio en memoria de tipo Mascota*
+ *
+ */
 Mascota* new_mascota()
 {
     Mascota* nuevaMascota;
@@ -27,6 +25,14 @@ Mascota* new_mascota()
 	return nuevaMascota;
 }
 
+/** \brief Pide espacio memoria para una nueva mascota y setea los campos con los parametros ingresados
+ *
+ * \param idStr char* Id a setear
+ * \param nombreStr char* Nombre a setear
+ * \param edadStr char* Edad a setear
+ * \return Mascota* Retorna un puntero con espacio en memoria de tipo Mascota* con los campos seteados
+ *
+ */
 Mascota* newParam_mascota(char* idStr, char* nombreStr, char* edadStr)
 {
     Mascota* nuevaMascota = new_mascota();
@@ -53,11 +59,25 @@ Mascota* newParam_mascota(char* idStr, char* nombreStr, char* edadStr)
     return nuevaMascota;
 }
 
+/** \brief Libera espacio en memoria de una mascota
+ *
+ * \param mascota Mascota* Puntero a mascota
+ * \return void
+ *
+ */
 void mascota_delete(Mascota* mascota)
 {
     free(mascota);
 }
 
+/** \brief Setea id en el campo id de una estructura Mascota*
+ *
+ * \param mascota Mascota* Puntero a mascota
+ * \param id int Id a setear
+ * \return int Retorna: (0) = Si el puntero a Mascota* es NULL o el id no es valido
+ *                      (1) = TodoOk
+ *
+ */
 int mascota_setId(Mascota* mascota, int id)
 {
     int todoOk = 0;
@@ -68,6 +88,15 @@ int mascota_setId(Mascota* mascota, int id)
 	}
 	return todoOk;
 }
+
+/** \brief Obtiene el id de una mascota
+ *
+ * \param mascota Mascota* Puntero a mascota
+ * \param id int* Puntero donde se va a guardar el id obtenido
+ * \return int Retorna: (0) = Si el puntero a Mascota* es NULL o el puntero a id es NULL
+ *                      (1) = TodoOk
+ *
+ */
 int mascota_getId(Mascota* mascota, int* id)
 {
     int todoOk = 0;
@@ -79,6 +108,14 @@ int mascota_getId(Mascota* mascota, int* id)
 	return todoOk;
 }
 
+/** \brief Setea nombre en el campo nombre de una estructura Mascota*
+ *
+ * \param mascota Mascota* Puntero a mascota
+ * \param nombre char* Nombre a setear
+ * \return int Retorna: (0) = Si el puntero a Mascota* es NULL o el nombre no es valido
+ *                      (1) = TodoOk
+ *
+ */
 int mascota_setNombre(Mascota* mascota, char* nombre)
 {
     int todoOk = 0;
@@ -94,6 +131,15 @@ int mascota_setNombre(Mascota* mascota, char* nombre)
 	}
 	return todoOk;
 }
+
+/** \brief Obtiene el nombre de una mascota
+ *
+ * \param mascota Mascota* Puntero a mascota
+ * \param nombre char* Puntero donde se va a guardar el nombre obtenido
+ * \return int Retorna: (0) = Si el puntero a Mascota* es NULL o el puntero a nombre es NULL
+ *                      (1) = TodoOk
+ *
+ */
 int mascota_getNombre(Mascota* mascota, char* nombre)
 {
     int todoOk = 0;
@@ -105,6 +151,14 @@ int mascota_getNombre(Mascota* mascota, char* nombre)
 	return todoOk;
 }
 
+/** \brief Setea edad en el campo edad de una estructura Mascota*
+ *
+ * \param mascota Mascota* Puntero a mascota
+ * \param edad int Edad a setear
+ * \return int Retorna: (0) = Si el puntero a Mascota* es NULL o edad no es valido
+ *                      (1) = TodoOk
+ *
+ */
 int mascota_setEdad(Mascota* mascota, int edad)
 {
     int todoOk = 0;
@@ -115,6 +169,15 @@ int mascota_setEdad(Mascota* mascota, int edad)
 	}
 	return todoOk;
 }
+
+/** \brief Obtiene la edad de una mascota
+ *
+ * \param mascota Mascota* Puntero a mascota
+ * \param edad int* Puntero donde se va a guardar la edad obtenida
+ * \return int Retorna: (0) = Si el puntero a Mascota* es NULL o el puntero a edad es NULL
+ *                      (1) = TodoOk
+ *
+ */
 int mascota_getEdad(Mascota* mascota, int* edad)
 {
     int todoOk = 0;
@@ -126,6 +189,14 @@ int mascota_getEdad(Mascota* mascota, int* edad)
 	return todoOk;
 }
 
+/** \brief Carga los datos de las mascotas desde el archivo data.csv (modo texto).
+ *
+ * \param path char* Ruta de la ubicacion del archivo de texto
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si la ruta es invalida, si el puntero a LinkedList es NULL o si no pudo abrir el archivo
+ *                      (1) = Si pudo leer el archivo
+ *
+ */
 int cargarMascotas(char* path , LinkedList* pListaMascotas)
 {
     int todoOk = 0;
@@ -136,8 +207,7 @@ int cargarMascotas(char* path , LinkedList* pListaMascotas)
         f = fopen(path, "r");
         if(f != NULL)
         {
-            parser_MascotasFromText(f, pListaMascotas);
-            todoOk = 1;
+            todoOk = parser_MascotasFromText(f, pListaMascotas);
         }
     }
     fclose(f);
@@ -145,6 +215,13 @@ int cargarMascotas(char* path , LinkedList* pListaMascotas)
     return todoOk;
 }
 
+/** \brief Baja de una mascota
+ *
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si el puntero a LinkedList* es NULL
+ *                      (1) = TodoOk
+ *
+ */
 int bajaMascota(LinkedList* pListaMascotas)
 {
     int todoOk = 0;
@@ -177,17 +254,24 @@ int bajaMascota(LinkedList* pListaMascotas)
             {
                 ll_remove(pListaMascotas, indice);
                 printf("Baja realizada con exito\n");
-                todoOk = 1;
             }
             else
             {
                 printf("Se ha cancelado la baja\n");
             }
         }
+        todoOk = 1;
     }
     return todoOk;
 }
 
+/** \brief Baja de una mascota pero conservando el elemento
+ *
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si el puntero a LinkedList* es NULL
+ *                      (1) = TodoOk
+ *
+ */
 int bajaMascotaGuardarElemento(LinkedList* pListaMascotas)
 {
     int todoOk = 0;
@@ -209,16 +293,23 @@ int bajaMascotaGuardarElemento(LinkedList* pListaMascotas)
         {
             ll_pop(pListaMascotas, getIndexById(pListaMascotas, id));
             printf("Baja realizada con exito\n");
-            todoOk = 1;
         }
         else
         {
             printf("Se ha cancelado la baja\n");
         }
+        todoOk = 1;
     }
     return todoOk;
 }
 
+/** \brief Modificar una mascota
+ *
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si el puntero a LinkedList* es NULL
+ *                      (1) = TodoOk
+ *
+ */
 int modificarMascota(LinkedList* pListaMascotas)
 {
     int todoOk = 0;
@@ -292,6 +383,14 @@ int modificarMascota(LinkedList* pListaMascotas)
     return todoOk;
 }
 
+/** \brief Obtiene el indice de una mascota recibiendo como parametro su id
+ *
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \param id int Id de la mascota a buscar
+ * \return int Retorna: (-1) = Si el puntero a LinkedList* es NULL
+ *                      Indice donde se encuentra la mascota si esta todo Ok
+ *
+ */
 int getIndexById(LinkedList* pListaMascotas, int id)
 {
     int indice = -1;
@@ -317,13 +416,19 @@ int getIndexById(LinkedList* pListaMascotas, int id)
             }
         }
     }
-
     return indice;
 }
 
+/** \brief Permite buscar una mascota
+ *
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si el puntero a LinkedList* es NULL
+ *                      (1) = Todo Ok
+ *
+ */
 int buscarMascota(LinkedList* pListaMascotas)
 {
-    int todoOk = -1;
+    int todoOk = 0;
     Mascota* mascota;
     if(pListaMascotas != NULL)
     {
@@ -343,6 +448,13 @@ int buscarMascota(LinkedList* pListaMascotas)
     return todoOk;
 }
 
+/** \brief Crea una sublista de la lista principal pero solo tomando los primeros 5 elementos de la misma y los muestra en pantalla
+ *
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si el puntero a LinkedList* es NULL
+ *                      (1) = Todo Ok
+ *
+ */
 int listaCincoMascotas(LinkedList* pListaMascotas)
 {
     int todoOk = 0;
@@ -362,10 +474,24 @@ int listaCincoMascotas(LinkedList* pListaMascotas)
     return todoOk;
 }
 
+/** \brief Imprime en pantalla los datos de una mascota
+ *
+ * \param mascota Mascota* Puntero a mascota
+ * \return void
+ *
+ */
 void mostrarMascota(Mascota* mascota)
 {
     printf("%d%12s       %d\n", mascota->id, mascota->nombre, mascota->edad);
 }
+
+/** \brief Imprime en pantalla la lista de mascotas
+ *
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si el puntero a LinkedList* es NULL
+ *                      (1) = TodoOk
+ *
+ */
 int mostrarMascotas(LinkedList* pListaMascotas)
 {
     int todoOk = 0;
@@ -385,9 +511,19 @@ int mostrarMascotas(LinkedList* pListaMascotas)
 	return todoOk;
 }
 
+/** \brief Compara la edad de dos mascotas
+ *
+ * \param pElement1 void* Puntero a la primer mascota a comparar
+ * \param pElement2 void* Puntero a la segunda mascota a comparar
+ * \return int Retorna: (-2) = Si el puntero a la primer mascota es NULL o el puntero a la segunda mascota es NULL
+ *                      (-1) = Si la edad de la primer mascota es menor a la segunda
+ *                      (0)  = Si las edades son iguales
+ *                      (1)  = Si la edad de la primer mascota es mayor a la segunda
+ *
+ */
 int ordenarMascotasEdad(void* pElement1, void* pElement2)
 {
-    int comparacion;
+    int comparacion = -2;
     int resultado;
     Mascota* mascota1 = (Mascota*)pElement1;
     Mascota* mascota2 = (Mascota*)pElement2;
@@ -415,23 +551,29 @@ int ordenarMascotasEdad(void* pElement1, void* pElement2)
     return comparacion;
 }
 
+/** \brief Guarda los datos de los empleados en el archivo listaMascotas.csv (modo texto).
+ *
+ * \param path char* Ruta de la ubicacion del archivo de texto
+ * \param pListaMascotas LinkedList* Puntero a LinkedList
+ * \return int Retorna: (0) = Si la ruta es invalida, si el puntero a LinkedList es NULL o si no pudo escribir el archivo
+ *                      (1) = Si pudo escribir el archivo
+ *
+ */
 int guardarMascotas(char* path , LinkedList* pListaMascotas)
 {
-	int todoOk = -1;
-	FILE *pFile;
+    int todoOk = 0;
+	FILE* f;
 
 	if (path != NULL && pListaMascotas != NULL)
 	{
-		pFile = fopen(path, "w");
-		if (pFile != NULL)
+		f = fopen(path, "w");
+		if (f != NULL)
 		{
-			todoOk = parser_MascotasToText(pFile, pListaMascotas);
+			todoOk = parser_MascotasToText(f, pListaMascotas);
 		}
-		else
-		{
-			todoOk = 0;
-		}
-		fclose(pFile);
+		fclose(f);
 	}
 	return todoOk;
 }
+
+

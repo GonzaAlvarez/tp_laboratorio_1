@@ -1,15 +1,13 @@
-/*
- * inputs.c
- *
- *  Created on: 18 nov. 2021
- *      Author: Alvarez Gonzalo
- */
-
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 #include "Inputs.h"
 
+/** \brief Crea un menu y lo muestra en pantalla
+ *
+ * \return int Retorna el valor de la opcion seleccionada
+ *
+ */
 int menu()
 {
 	int opcion;
@@ -40,6 +38,14 @@ int menu()
 	return opcion;
 }
 
+/** \brief Verifica el largo de un string recibiendo como parametro un tamaño
+ *
+ * \param string[] char String a validar
+ * \param tam int Tamaño del string
+ * \return int Retorna: (0) = Si no supera el tamaño ingresado
+ *                      (1) = Si supera el tamaño ingresado
+ *
+ */
 int validarLargoString(char string[], int tam)
 {
     int todoOk = 0;
@@ -50,6 +56,13 @@ int validarLargoString(char string[], int tam)
     return todoOk;
 }
 
+/** \brief Verifica que un string este compuesto unicamente de letras
+ *
+ * \param string[] char String a validar
+ * \return int Retorna: (0) = Si esta compuesto de letras
+ *                      (1) = Si no esta compuesto de letras
+ *
+ */
 int validarString(char string[])
 {
     int todoOk = 0;
@@ -67,29 +80,36 @@ int validarString(char string[])
     return todoOk;
 }
 
+
+/** \brief Convierte una cadena a entero
+ *
+ * \param strValor[] char Cadena a convertir
+ * \param intValor int* Puntero a entero que va a ser guardado como cadena
+ * \return int Retorna: (0) = Si la cadena es NULL o si el puntero a entero es NULL
+ *                      (1) = Todo Ok
+ *
+ */
 int strToInt(char strValor[], int* intValor)
 {
-    int returnValor = 0;
+    int todoOk = 0;
     int valor;
 
-    if(strValor != NULL)
+    if(strValor != NULL && intValor != NULL)
     {
         if(strcmp(strValor, "0") == 0)
         {
             *intValor = 0;
-            returnValor = 1;
         }
         else
         {
             valor = atoi(strValor);
-
             if(valor != 0)
             {
                 *intValor = valor;
-                returnValor = 1;
             }
         }
+        todoOk = 1;
     }
 
-    return returnValor;
+    return todoOk;
 }

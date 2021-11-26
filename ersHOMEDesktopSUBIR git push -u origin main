@@ -1,0 +1,107 @@
+[33mcommit abc80d70d369bcfaa53344ea79975dfc74b4a93c[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: GonzaAlvarez <gonzaalvarezz@hotmail.com>
+Date:   Fri Nov 26 17:11:46 2021 -0300
+
+    TP2 Actualizado
+
+[33mcommit 0be49f799e5a970740adc9b6abb6e589540863b8[m[33m ([m[1;31morigin/main[m[33m)[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Fri Nov 19 17:07:43 2021 -0300
+
+    Borro .gitignore
+
+[33mcommit c4fb4757d32122b94684858db7ca43d89757d517[m
+Author: GonzaAlvarez <gonzaalvarezz@hotmail.com>
+Date:   Fri Nov 19 17:06:15 2021 -0300
+
+    Ultimas modificaciones TP3 y TP4
+
+[33mcommit 8d03b4bc225a30b1464943805361fef5bcb67f6b[m
+Author: GonzaAlvarez <gonzaalvarezz@hotmail.com>
+Date:   Fri Nov 19 14:53:29 2021 -0300
+
+    TP3 Final
+
+[33mcommit 6a8c992e7165ea04f9078f9e7be687bdae096d68[m
+Author: GonzaAlvarez <gonzaalvarezz@hotmail.com>
+Date:   Thu Nov 18 21:32:04 2021 -0300
+
+    Se sube el TP4
+
+[33mcommit 580caf304c28a6bf6536ae7cc1f5490876e22287[m
+Author: GonzaAlvarez <gonzaalvarezz@hotmail.com>
+Date:   Sat Nov 13 19:01:13 2021 -0300
+
+    Se sube el tp3
+
+[33mcommit aebdb488463e6969c433d091c40d5761173957d0[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Fri Oct 15 14:51:33 2021 -0300
+
+    Add files via upload
+
+[33mcommit e567dca429d53c6d88c3d946f954e76c4b0b8fb9[m
+Author: GonzaAlvarez <gonzaalvarezz@hotmail.com>
+Date:   Fri Oct 15 14:34:59 2021 -0300
+
+    Se sube el tp2
+
+[33mcommit 47e913fc2e2e14388c19d4d0e662d161bd9b339e[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:54:04 2021 -0300
+
+    Acomodando TP1
+
+[33mcommit 0106e74a178c9bbf336ec26d4e2a45da04e6ae69[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:53:42 2021 -0300
+
+    TP1
+
+[33mcommit 2723660388475813b22ec1ac41060e0cb53c3bba[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:51:50 2021 -0300
+
+    TP1
+
+[33mcommit 1f51bd00eea8ebb15e7fa93f7ede256fcb2697bf[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:51:15 2021 -0300
+
+    TP1
+
+[33mcommit ee79d0588d709931e8b715d9f78021199954e634[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:49:56 2021 -0300
+
+    Rename src/operaciones.h to TP_[1]/src/operaciones.h
+
+[33mcommit 1409a4aec256940fceee79ee8ffe032f35e7863d[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:49:33 2021 -0300
+
+    Rename src/operaciones.c to TP_[1]/src/operaciones.c
+
+[33mcommit 22fad2ffe5b3fe8dc2cd7ebc8c4a92c954f6d1e2[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:48:55 2021 -0300
+
+    Rename src/TP_[1].c to TP_[1]/src/TP_[1].c
+
+[33mcommit 5b5a6a2f0c343849babe139a279bd032cf21a2d0[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:46:34 2021 -0300
+
+    Rename .project to TP_[1]/.project
+
+[33mcommit b7467eba188cf19b55ceb3947689491f3253f184[m
+Author: Gonzalo Alvarez <77351471+GonzaAlvarez@users.noreply.github.com>
+Date:   Tue Sep 21 16:46:13 2021 -0300
+
+    Rename .cproject to TP_[1]/.cproject
+
+[33mcommit d30e88bda4fb40a9304ae690ac8511683347c99b[m
+Author: GonzaAlvarez <gonzaalvarezz@hotmail.com>
+Date:   Tue Sep 21 15:44:28 2021 -0300
+
+    Se agrega el TP1

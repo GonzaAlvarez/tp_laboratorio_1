@@ -1,3 +1,10 @@
+/*
+ * Inputs.h
+ *
+ *  Created on: 26 nov. 2021
+ *      Author: Alvarez Gonzalo
+ */
+
 #ifndef INPUTS_H_
 #define INPUTS_H_
 
@@ -29,6 +36,29 @@ int menuModify(Employee* list, int len, int id);
  */
 int menuInformes();
 
+/**
+ * \brief Genera un número aleatorio
+ * \param desde Número aleatorio mínimo
+ * \param hasta Número aleatorio máximo
+ * \return retorna el número aleatorio generado
+ *
+ */
+char getIdAleatorio(int desde , int hasta);
+
+/** \brief Valida que los id no se repitan
+ *
+ * \param id int
+ * \return int Retorna el valor del id ingresado, o un nuevo valor en caso de que sea repetido
+ *
+ */
+int validarId(Employee* list, int len, int id);
+
+/**
+ * \brief Solicita un número al usuario y devuelve el resultado
+ * \param mensaje Es el mensaje a ser mostrado
+ * \return El número ingresado por el usuario
+ *
+ */
 int getInt(char mensaje[]);
 
 /**
@@ -48,14 +78,6 @@ float getFloat(char mensaje[]);
 char getChar(char mensaje[]);
 
 /**
- * \brief Verifica si el valor recibido contiene solo letras
- * \param str Array con la cadena a ser analizada
- * \return 1 si contiene solo ' ' y letras y 0 si no lo es
- *
- */
-int onlyLetters(char str[]);
-
-/**
  * \brief Solicita un texto al usuario y lo devuelve
  * \param mensaje Es el mensaje a ser mostrado
  * \param input Array donde se cargará el texto ingresado
@@ -63,10 +85,24 @@ int onlyLetters(char str[]);
  */
 void getString(char mensaje[], char input[]);
 
-/**
- * \brief Solicita un texto al usuario y lo devuelve
- * \param mensaje Es el mensaje a ser mostrado
- * \param input Array donde se cargará el texto ingresado
- * \return 1 si el texto contiene solo letras
+/** \brief Verifica el largo de un string recibiendo como parametro un tamaño
+ *
+ * \param string[] char String a validar
+ * \param tam int Tamaño del string
+ * \return int Retorna: (0) = Si no supera el tamaño ingresado
+ *                      (1) = Si supera el tamaño ingresado
+ *
  */
-int getStringLetters(char mensaje[], char input[]);
+int validarLargoString(char string[], int tam);
+
+/** \brief Verifica que un string este compuesto unicamente de letras
+ *
+ * \param string[] char String a validar
+ * \return int Retorna: (0) = Si esta compuesto de letras
+ *                      (1) = Si no esta compuesto de letras
+ *
+ */
+int validarString(char string[]);
+
+int validarInt(char* num);
+int validarFloat(char* num);

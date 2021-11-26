@@ -12,9 +12,9 @@
 #include <stdlib.h>
 #include <string.h>
 #include <time.h>
-#include "ArrayEmployees.h"
+#include <ctype.h>
+#include "Employee.h"
 #include "Inputs.h"
-#include "Extra.h"
 
 #define ELEMENTS 1000
 
@@ -26,6 +26,7 @@ int main()
     Employee list[ELEMENTS];
     int id;
     int idIngresado;
+    char bufferIdIngresado[20];
     int flagAdd = 0;
 
     initEmployees(list, ELEMENTS);
@@ -52,7 +53,16 @@ int main()
                 printf("MENU MODIFICACION EMPLEADO\n");
                 printf("----------------------------\n");
                 printEmployees(list, ELEMENTS);
-                idIngresado = getInt("Ingrese ID: ");
+                printf("Ingrese ID: ");
+                fflush(stdin);
+                gets(bufferIdIngresado);
+                while(validarInt(bufferIdIngresado))
+                {
+                    printf("Error, reingrese ID: ");
+                    fflush(stdin);
+                    gets(bufferIdIngresado);
+                }
+                idIngresado = atoi(bufferIdIngresado);
                 modifyEmployee(list, ELEMENTS, idIngresado);
             }
             else
@@ -67,7 +77,16 @@ int main()
                 printf("MENU BAJA EMPLEADO\n");
                 printf("------------------------\n");
                 printEmployees(list, ELEMENTS);
-                idIngresado = getInt("Ingrese ID: ");
+                printf("Ingrese ID: ");
+                fflush(stdin);
+                gets(bufferIdIngresado);
+                while(validarInt(bufferIdIngresado))
+                {
+                    printf("Error, reingrese ID: ");
+                    fflush(stdin);
+                    gets(bufferIdIngresado);
+                }
+                idIngresado = atoi(bufferIdIngresado);
                 removeEmployee(list, ELEMENTS, idIngresado);
             }
             else
